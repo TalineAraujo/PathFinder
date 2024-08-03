@@ -6,8 +6,7 @@ const Cadastro = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmacaoSenha, setconfirmacaoSenha] = useState('');
-    const navigate = usenavigate();
-
+    const navigate = useNavigate();
 
     const handleSignup = (e) => {
         e.preventDefault ();
