@@ -12,7 +12,7 @@ const Login = () =>{
         e.preventDefault()
             if(email === 'socorro@deus.com' && senha === 'socorro123'){
                 //manda para a home
-                navigate ('/')
+                navigate ('/dashbord')
 
             }
 
@@ -22,12 +22,12 @@ const Login = () =>{
     return (
         <>
 
-        <from onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <input type="email" placeholder="Email" value={email} onChange={(e)=> setEmail(e.target.value)} required/>
             <input type="password" placeholder="Senha" value={senha} onChange={(e)=> setSenha(e.target.value)} required/>  
             <button type="submit">Entrar</button>
 
-        </from>
+        </form>
 
         </>
     )
