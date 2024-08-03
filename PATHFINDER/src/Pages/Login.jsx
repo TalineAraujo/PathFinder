@@ -13,11 +13,16 @@ const Login = () =>{
         e.preventDefault()
             if(email === 'socorro@deus.com' && senha === 'socorro123'){
                 //manda para a home
-                navigate ('/dashbord')
+                navigate ('/')
+            }else{
 
+                alert('Email e/ou senha incorretos')
             }
 
-            alert('Email e/ou senha incorretos')
+    }
+
+    function handleRegisterClick(){
+        navigate('/cadastro');
     }
 
     return (
@@ -29,8 +34,8 @@ const Login = () =>{
         <div className="login-form">
         <form onSubmit={handleSubmit}>
 
-            <h2>LOGIN</h2>
-            <p>Entre e desbrave as belezas do nosso Brasil!</p>
+            <h2>BEM VINDO</h2>
+            <p>Desbrave e compartilhe as belezas do nosso Brasil!</p>
 
             <div className="form-group">
                 <label htmlFor="email"> Email </label>
@@ -47,7 +52,7 @@ const Login = () =>{
             </div>
 
             <button type="submit" className="btn btn-primary">Entrar</button>
-            <button type="button" className="btn btn-secondary">Cadastrar-se</button>
+            <button type="button" className="btn btn-secondary" onClick={handleRegisterClick}>Cadastrar-se</button>
 
         </form>
         </div>

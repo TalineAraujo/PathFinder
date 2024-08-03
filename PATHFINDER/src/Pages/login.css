@@ -39,12 +39,13 @@
     font-size: 24px;
     font-weight: bold;
     color: #121212;
+    text-align: center;
 }
 
 .login-form p {
-    margin-bottom: 30px;
-    font-size: 14px;
-    color: #777;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #3d3838;
     text-align: center;
     max-width: 300px;
 }
@@ -73,18 +74,13 @@
     cursor: pointer;
 }
 
-.btn-primary {
-    background-color: #007bff;
-    color: white;
+.login-form .btn-primary {
+    background-color: pink; /* Cor de fundo rosa */
+    color: black; /* Cor do texto preto */
 }
 
-.btn-secondary {
-    background-color: #6c757d;
-    color: white;
+.login-form .btn-secondary {
+    background-color: black; /* Cor de fundo preta */
+    color: pink; /* Cor do texto rosa */
 }
-
-
-
-
-  
   
