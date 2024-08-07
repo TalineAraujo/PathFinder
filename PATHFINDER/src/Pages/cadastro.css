@@ -5,57 +5,74 @@
 }
 
 .cadastro-form-container {
-    flex: 3;
-    padding: 20px;
+    flex: 2;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: hsl(293, 21%, 92%);
-    padding: 20px;
+    background-color: #fff;
 }
 
 .cadastro-form-container h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.cadastro-form-container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group label {
-    display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid hsl(0, 17%, 92%);
+.form-group input, .form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: #fff; /* Para a cor branca do input */
+    color: #000;
 }
 
 .btn-cadastrar {
-    background-color: #000000;
-    border: none;
+    grid-column: span 2;
+    padding: 15px;
+    background-color: black;
     color: pink;
-    padding: 10px 20px;
-    font-size: 1rem;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
     cursor: pointer;
+    text-align: center;
     border-radius: 4px;
     margin-top: 20px;
+}
+
+.cadastro-form-container p {
+    grid-column: span 2;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .cadastro-imagem {
     flex: 1;
     background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cadastro-imagem img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
 }
