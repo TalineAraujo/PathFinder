@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './login.css';
+import axios from 'axios'; 
+
 
 
 const Login = () =>{ 
@@ -9,16 +11,22 @@ const Login = () =>{
 
     const navigate = useNavigate();
 
-    function handleSubmit(e){
-        e.preventDefault()
-            if(email === 'socorro@deus.com' && senha === 'socorro123'){
-                //manda para a home
-                navigate ('/')
-            }else{
+    async function handleSubmit(e){
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:9000/login', {email, senha} );
+            const {token} = response.data;
 
-                alert('Email e/ou senha incorretos')
-            }
+            localStorage.setItem('token', token);
+            navigate('/')
+            
+        } catch (error) {
+            console.log('Acesso negado:', error.response.data.message); 
+            alert('Email ou senha incorreto!');
+            
+        }
 
+            
     }
 
     function handleRegisterClick(){

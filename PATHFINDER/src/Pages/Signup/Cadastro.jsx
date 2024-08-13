@@ -8,7 +8,6 @@ const Cadastro = () => {
     const [nome, setNome] = useState('');
     const [sexo, setSexo] = useState('');
     const [endereco, setEndereco] = useState('');
-    //const [numero, setNumero] = useState('');
     const [senha, setSenha] = useState('');
     const [cpf, setCpf] = useState('');
     const [data_nascimento, setDataNascimento] = useState('');
@@ -73,10 +72,7 @@ const Cadastro = () => {
                         <label>Endereço:</label>
                         <input type="text" value={endereco} onChange={(e) => setEndereco(e.target.value)} required />
                     </div>
-                    {/* <div className="form-group">
-                        <label>Numero:</label>
-                        <input type="number" value={numero} onChange={(e) => setNumero(e.target.value)} required />
-                    </div> */}
+                    
                     <div className="form-group">
                         <label>Email:</label>
                         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />  

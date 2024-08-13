@@ -1,0 +1,19 @@
+.cadastro-local {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+.error {
+  color: red;
+}
+
+.feedback {
+  margin-top: 15px;
+  font-weight: bold;
+}
+

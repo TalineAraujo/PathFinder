@@ -1,0 +1,66 @@
+.dashboard-container {
+  display: flex;
+}
+
+.dashboard-content {
+  margin-left: 200px; /* Ajuste para a largura do header */
+  padding: 20px;
+  width: 100%;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.card {
+  background-color: #000;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-content h2 {
+  font-size: 18px;
+}
+
+.card-content .count {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.card-content .icon {
+  font-size: 36px;
+  color: #ffff00;
+}
+
+.locations-list {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.locations-list h2 {
+  margin-bottom: 10px;
+}
+
+.locations-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.locations-list th, .locations-list td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.locations-list tr:hover {
+  background-color: #f1f1f1;
+}

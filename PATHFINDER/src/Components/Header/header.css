@@ -1,0 +1,62 @@
+.header {
+  background-color: black; /* Define a cor de fundo do header */
+  color: pink; /* Define a cor do texto no header */
+  position: fixed; /* Mantém o header fixo na tela */
+  top: 0;
+  left: 0;
+  width: 200px; /* Define a largura do header */
+  height: 100vh; /* Define a altura do header como 100% da altura da viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Mantém os elementos alinhados ao topo */
+  padding: 20px;
+}
+
+.header-title {
+  font-size: 34px; /* Define o tamanho da fonte do título */
+  margin-bottom: 50px; /* Espaçamento abaixo do título */
+  color: pink; /* Cor do título */
+}
+
+.header nav ul {
+  list-style: none; /* Remove os marcadores da lista */
+  padding: 0; /* Remove o preenchimento da lista */
+  margin: 0; /* Remove as margens da lista */
+  flex-grow: 1; /* Permite que a lista cresça para ocupar o espaço disponível */
+  display: flex;
+  flex-direction: column; /* Alinha os itens da lista em coluna */
+  justify-content: center; /* Centraliza os itens da lista verticalmente */
+
+}
+
+.header nav ul li {
+  margin-bottom: 20px; /* Espaçamento entre os itens da lista */
+  
+}
+
+.header nav ul li a {
+  color: pink; /* Define a cor do texto dos links */
+  text-decoration: none; /* Remove a sublinhado dos links */
+  display: flex; /* Exibe os links como flex containers */
+  align-items: center; /* Alinha os ícones e o texto verticalmente */
+}
+
+.header nav ul li a svg {
+  margin-right: 10px; /* Espaçamento entre ícone e texto */
+}
+
+.header-button {
+  margin-top: auto; /* Empurra o botão de sair para a parte inferior */
+  background: none; /* Remove o fundo do botão */
+  border: none; /* Remove a borda do botão */
+  color: pink; /* Define a cor do texto do botão */
+  display: flex; /* Exibe os links como flex containers */
+  align-items: center; /* Alinha os ícones e o texto verticalmente */
+  
+}
+
+.header-button svg {
+  margin-right: 10px; /* Espaçamento entre ícone e texto no botão */
+
+}
+
