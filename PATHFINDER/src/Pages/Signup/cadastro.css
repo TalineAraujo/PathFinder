@@ -1,0 +1,115 @@
+/* Container principal que abriga o formulário e a imagem */
+.cadastro-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container do formulário */
+.cadastro-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 67%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo do formulário */
+form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Cada grupo de entrada do formulário */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo dos inputs do formulário */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Para os selects ficarem em linha com os inputs */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+/* Estilo do título do formulário */
+.cadastro-form-container h2 {
+    text-align: center; /* Centraliza o texto do título */
+    margin: 30px 0 50px; /* Remove a margem superior e adiciona espaço abaixo do título */
+    font-size: 35px; /* Ajusta o tamanho da fonte do título */
+    font-weight: bold; /* Torna o título em negrito */
+}
+
+/* Estilo do botão cadastrar */
+.btn-cadastrar {
+    grid-column: span 2;
+    background-color: pink;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    
+}
+
+/* Estilo do container da imagem */
+.cadastro-imagem {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastro-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tornando a página responsiva para dispositivos menores */
+@media (max-width: 768px) {
+    .cadastro-container {
+        flex-direction: column;
+    }
+
+    .cadastro-form-container, .cadastro-imagem {
+        width: 100%;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-cadastrar {
+        grid-column: span 1;
+    }
+}
+
+  
+  

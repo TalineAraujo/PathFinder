@@ -89,7 +89,7 @@ const Cadastro = () => {
                 </form>
             </div>
             <div className="cadastro-imagem">
-                <img src="/src/assets/pathfinder.png" alt="Imagem de fundo" />
+                <img src="/src/assets/ceu.png" alt="Imagem de fundo" />
             </div>
         </div>
     );

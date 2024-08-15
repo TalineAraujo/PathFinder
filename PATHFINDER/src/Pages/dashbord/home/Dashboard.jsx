@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../../Components/Header/Header'; // Ajuste o caminho conforme necessário
 import { FaUser, FaMapMarkerAlt } from 'react-icons/fa';
 import './dashboard.css';
-import axios from '../../../api/api'; // Certifique-se de que o caminho está correto
+import axios from 'axios'; // Importa o Axios diretamente
+
+
 
 const Dashboard = () => {
   const [usuarioCard, setUsuarioCard] = useState(0);
@@ -10,32 +12,54 @@ const Dashboard = () => {
   const [locais, setLocais] = useState([]);
 
   useEffect(() => {
+    // Função para obter o token do localStorage
+    const getToken = () => {
+      const token = localStorage.getItem('token');
+      console.log("Token obtido:", token); // Verifique se o token está sendo retornado
+      return token;
+    };
+
+    // Função para buscar os dados
     const fetchData = async () => {
       try {
+        // Configuração do Axios para o backend
+        const api = axios.create({
+          baseURL: 'http://localhost:9000', // URL base do seu backend
+          timeout: 10000, // Tempo máximo de espera por uma resposta
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${getToken()}`, // Adiciona o token ao cabeçalho
+          },
+        });
+
         // Fetching usuários
-        const usuariosResponse = await axios.get('/usuarios');
+        const usuariosResponse = await api.get('/usuarios');
         const usuarios = usuariosResponse.data;
 
-        // Fetching locais
-        const locaisResponse = await axios.get('/local');
+        // Fetching todos os locais
+        const locaisResponse = await api.get('/local'); // Sem parâmetros, busca todos os locais
         const locais = locaisResponse.data;
 
         // Atualizando o estado
-        setUsuarioCard(usuarios.length);
-        setLocaisCard(locais.length);
-        setLocais(locais);
+        setUsuarioCard(usuarios.length); // Contagem total de usuários
+        setLocaisCard(locais.length); // Contagem total de locais
+        setLocais(locais); // Lista de locais
+
       } catch (error) {
-        console.error('Erro ao buscar dados:', error);
+        console.error('Erro ao buscar dados:', error.response ? error.response.data : error.message);
       }
     };
 
     fetchData();
   }, []);
 
+
+
   return (
     <div className="dashboard-container">
       <Header />
       <div className="dashboard-content">
+
         <h1>Dashboard</h1>
         <div className="cards">
           <div className="card">
@@ -55,19 +79,17 @@ const Dashboard = () => {
         </div>
         <div className="locations-list">
           <h2>Locais</h2>
-          <p>Listagem dos localidade cadastrados</p>
+          <p>Listagem das localidades cadastradas</p>
           <table>
             <thead>
               <tr>
                 <th>Local</th>
-                <th>Usuário</th>
               </tr>
             </thead>
             <tbody>
               {locais.map((local, index) => (
                 <tr key={index}>
-                  <td>{local.nome}</td> 
-                  <td>{local.usuario}</td> 
+                  <td>{local.nome}</td> {/* Exibe apenas o nome do local */}
                 </tr>
               ))}
             </tbody>
@@ -79,3 +101,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
+

@@ -1,19 +1,70 @@
-.cadastro-local {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../../assets/cadastro.png'); /* Substitua pelo caminho da sua imagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-form div {
+/* Estilização do contêiner do formulário */
+.cadastro-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com maior opacidade */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 600px; /* Aumentar a largura do formulário */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centralizar o conteúdo dentro do container */
+}
+
+/* Estilização do formulário */
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Garantir que o formulário ocupe toda a largura do container */
+}
+
+/* Estilização das divs */
+.cadastro-div {
   margin-bottom: 15px;
 }
 
-.error {
-  color: red;
+/* Estilização dos campos de entrada (inputs) */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff; /* Fundo branco */
+  color: #000; /* Texto preto */
 }
 
-.feedback {
-  margin-top: 15px;
-  font-weight: bold;
+/* Estilização do botão de envio */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: pink;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
+
+/* Estilização do título */
+.cadastro-titulo {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
 
