@@ -15,9 +15,11 @@ const Login = () =>{
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:9000/login', {email, senha} );
-            const {token} = response.data;
+            const {token, usuario_Id} = response.data;
 
             localStorage.setItem('token', token);
+            localStorage.setItem('usuario_Id', usuario_Id);
+
             navigate('/')
             
         } catch (error) {

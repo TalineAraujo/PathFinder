@@ -1,17 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import './header.css'
 import { FaUser, FaMapMarkerAlt, FaSignOutAlt, FaHome } from 'react-icons/fa';
-
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-    const handleLogout = () =>(
-        console.log('teste saindo')
-
-    );
+    const navigate = useNavigate();
 
     function logout() {
         localStorage.removeItem('token');
+        navigate('/login')
     }
 
     return (
@@ -31,7 +29,7 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
-                <button className="header-button" onClick={handleLogout} > <FaSignOutAlt /> Sair </button>
+                <button className="header-button" onClick={logout} > <FaSignOutAlt /> Sair </button>
                 
             </div>
         </>

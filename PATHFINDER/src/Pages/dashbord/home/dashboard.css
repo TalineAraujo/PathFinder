@@ -1,50 +1,48 @@
-/* Container principal da dashboard */
 .dashboard-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #efdede;
   min-height: 100vh;
-  padding: 0;
-  margin-left: 200px; /* Espaço para o menu lateral */
+  padding: 5px; /* Reduzi ainda mais o padding */
+  width: 100vw;
 }
 
-/* Container para o conteúdo da dashboard */
 .dashboard-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 50px;
-  margin: 0 auto;
+  padding: 15px; /* Reduzi o padding */
   box-sizing: border-box;
-  width: 100%; /* Preencher todo o espaço disponível */
+  width: 100%; /* Ajustei para ocupar 100% da largura disponível */
+  max-width: 800px; /* Reduzi a largura máxima */
 }
 
-/* Título da dashboard */
 .dashboard-content h1 {
-  font-size: 2.5rem;
-  color:black;
-  text-align: center;
-  margin-bottom: 30px;
+  font-size: 1.5rem; /* Reduzi o tamanho da fonte */
+  color: black;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 10px; /* Reduzi a margem inferior */
 }
 
-/* Configuração dos cartões */
-.cards {
+.cards-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Permitir que os cartões ocupem várias linhas se necessário */
-  gap: 100px; /* Espaço entre os cartões */
-  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 40px; /* Reduzi o espaço entre os cards */
+  margin-bottom: 10px; /* Reduzi a margem inferior */
+  width: 100%;
+  margin-top: 300px;
 }
 
 .card {
   background-color: #000000;
-  color: pink; /* Texto rosa nos cartões */
+  color: pink;
   border-radius: 8px;
-  padding: 20px;
-  width: 300px; /* Largura fixa para os cartões */
+  padding: 8px; /* Reduzi o padding */
+  width: 160px; /* Reduzi a largura */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -52,101 +50,76 @@
   transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .card h2 {
-  font-size: 1.5rem;
+  font-size: 1rem; /* Reduzi o tamanho da fonte */
   color: pink;
 }
 
 .card .count {
-  font-size: 2rem;
+  font-size: 1.3rem; /* Reduzi o tamanho da fonte */
   font-weight: bold;
-  margin: 10px 0;
+  color: black;
 }
 
 .card .icon {
-  font-size: 2.5rem;
-  color:pink;
+  font-size: 1.5rem; /* Reduzi o tamanho do ícone */
+  color: pink;
 }
 
-/* Lista de locais */
-.locations-list {
-  margin-top: 30px;
+.list-container {
+  margin-top: 5px; /* Reduzi a margem superior */
   width: 100%;
-  max-width: 1200px; /* Aumentar a largura máxima da lista */
-  margin: 0 auto; /* Centralizar a lista */
+  max-width: 800px; /* Reduzi a largura máxima */
+  margin: 0 auto;
 }
 
-.locations-list h2 {
-  font-size: 2rem;
+.list-container h2 {
+  font-size: 1.3rem; /* Reduzi o tamanho da fonte */
   color: black;
-  text-align: left; 
-  margin-bottom: 30px;
+  text-align: left;
+  margin-bottom: 10px; /* Reduzi a margem inferior */
   font-weight: bold;
-  font-size: 55px;
 }
 
-.locations-list p {
-  color:black;
-  margin-bottom: 30px;
-  font-size: 35px;
+.list-container p {
+  color: black;
+  margin-bottom: 10px; /* Reduzi a margem inferior */
+  font-size: 0.9rem; /* Reduzi o tamanho da fonte */
+  text-align: left;
 }
 
 table {
-  width: 100%; /* Ajusta a largura da tabela para preencher o espaço disponível */
+  width: 100%;
   border-collapse: collapse;
   background-color: white;
+  border: none;
 }
 
 th, td {
-  padding: 15px;
+  padding: 6px; /* Reduzi o padding */
   text-align: left;
   border-bottom: 1px solid #080808;
+  color: black;
 }
 
 th {
   background-color: #f5f5f5;
   font-weight: bold;
-  color: #333333;
 }
 
 td {
-  color: #333333;
+  color: black;
 }
 
 tr:hover td {
   background-color: #f1f1f1;
 }
-
-/* Configuração da paginação */
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination a {
-  color: #ff69b4;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.pagination a.active {
-  background-color: #ff69b4;
-  color: white;
-  border-radius: 5px;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
-  border-radius: 5px;
-}
-
-
-
 
 

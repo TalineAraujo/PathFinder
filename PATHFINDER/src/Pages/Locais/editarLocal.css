@@ -1,0 +1,64 @@
+/* Container principal do formulário de edição */
+.editar-local {
+    width: 100%;
+    max-width: 600px; /* Limita a largura máxima do formulário */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao redor do formulário */
+    border-radius: 8px; /* Arredonda os cantos do formulário */
+    background-color: #fff; /* Define o fundo do formulário como branco */
+  }
+  
+  /* Estiliza o título do formulário */
+  .editar-local h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Cor do texto do título */
+  }
+  
+  /* Estiliza o formulário */
+  .editar-local form {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos do formulário em coluna */
+  }
+  
+  /* Estiliza cada grupo de campo do formulário */
+  .editar-local div {
+    margin-bottom: 15px; /* Espaçamento inferior entre os campos */
+  }
+  
+  /* Estiliza os rótulos dos campos do formulário */
+  .editar-local label {
+    display: block; /* Faz com que o rótulo ocupe a largura total */
+    font-weight: bold; /* Torna o texto do rótulo em negrito */
+    margin-bottom: 5px; /* Espaçamento inferior entre o rótulo e o campo */
+    color: #555; /* Cor do texto do rótulo */
+  }
+  
+  /* Estiliza os campos de entrada */
+  .editar-local input[type="text"] {
+    width: 100%; /* Faz com que os campos de entrada ocupem toda a largura do contêiner */
+    padding: 10px; /* Adiciona espaçamento interno aos campos de entrada */
+    border: 1px solid #ddd; /* Adiciona uma borda leve aos campos de entrada */
+    border-radius: 4px; /* Arredonda os cantos dos campos de entrada */
+    font-size: 16px; /* Define o tamanho da fonte dos campos de entrada */
+    box-sizing: border-box; /* Inclui a borda e o preenchimento na largura total */
+  }
+  
+  /* Estiliza o botão de submissão */
+  .editar-local button {
+    padding: 10px 20px; /* Adiciona espaçamento interno ao botão */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 4px; /* Arredonda os cantos do botão */
+    background-color: #007bff; /* Define a cor de fundo do botão */
+    color: #fff; /* Define a cor do texto do botão como branco */
+    font-size: 16px; /* Define o tamanho da fonte do botão */
+    cursor: pointer; /* Muda o cursor para uma mão ao passar sobre o botão */
+    transition: background-color 0.3s; /* Adiciona uma transição suave na mudança de cor de fundo */
+  }
+  
+  /* Estiliza o botão de submissão ao passar o cursor */
+  .editar-local button:hover {
+    background-color: #0056b3; /* Muda a cor de fundo do botão quando o cursor está sobre ele */
+  }
+  
