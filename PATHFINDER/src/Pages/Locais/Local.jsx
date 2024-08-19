@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Header from '../../Components/Header/Header'; // Importa o Header
+import Header from '../../Components/Header/Header'; 
 import './local.css';
 
 const Local = () => {

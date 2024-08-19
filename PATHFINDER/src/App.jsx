@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppRoutes } from './Components/AppRoutes'; // Importa o novo componente de rotas
+import { AppRoutes } from './Components/AppRoutes'; 
 
 function App() {
   return (

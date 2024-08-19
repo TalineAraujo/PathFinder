@@ -12,10 +12,10 @@ const Dashboard = () => {
   const [locais, setLocais] = useState([]);
 
   useEffect(() => {
-    // Função para obter o token do localStorage
+    
     const getToken = () => {
       const token = localStorage.getItem('token');
-      console.log("Token obtido:", token); // Verifique se o token está sendo retornado
+      console.log("Token obtido:", token); 
       return token;
     };
 
@@ -32,11 +32,11 @@ const Dashboard = () => {
           },
         });
 
-        // Fetching usuários
+        
         const usuariosResponse = await api.get('/usuarios');
         const usuarios = usuariosResponse.data;
 
-        // Fetching todos os locais
+        
         const locaisResponse = await api.get('/local'); 
         const locais = locaisResponse.data;
 
@@ -93,7 +93,7 @@ const Dashboard = () => {
           <tbody>
             {locais.map((local, index) => (
               <tr key={index}>
-                <td>{local.nome}</td> {/* Exibe apenas o nome do local */}
+                <td>{local.nome}</td> 
               </tr>
             ))}
           </tbody>

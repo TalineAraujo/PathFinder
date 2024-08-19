@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './usuarios.css'; 
-import Header from '../../Components/Header/Header'; // Certifique-se de que o caminho esteja correto
+import Header from '../../Components/Header/Header'; 
 
 const Usuarios = () => {
     const [usuarios, setUsuarios] = useState([]);
@@ -30,7 +30,7 @@ const Usuarios = () => {
 
     return (
         <div>
-            <Header /> {/* Adicionando o Header */}
+            <Header /> 
             <div className="usuarios-container">
                 <h1>Lista de Usuários</h1>
                 {error && <p style={{ color: 'red' }}>{error}</p>}

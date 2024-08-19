@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Importando axios
-import './cadastro.css';  // Importando o arquivo CSS
+import axios from 'axios'; 
+import './cadastro.css';  
 
 const Cadastro = () => {
     const [email, setEmail] = useState('');
