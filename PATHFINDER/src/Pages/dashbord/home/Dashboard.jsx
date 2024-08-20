@@ -4,8 +4,6 @@ import { FaUser, FaMapMarkerAlt } from 'react-icons/fa';
 import './dashboard.css';
 import axios from 'axios'; 
 
-
-
 const Dashboard = () => {
   const [usuarioCard, setUsuarioCard] = useState(0);
   const [locaisCard, setLocaisCard] = useState(0);
