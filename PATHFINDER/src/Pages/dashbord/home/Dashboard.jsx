@@ -53,8 +53,6 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-
-
   return (
     <div className="dashboard-container">
     <Header />
