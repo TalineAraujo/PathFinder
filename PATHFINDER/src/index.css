@@ -1,68 +1,86 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ── Design tokens ── */
+:root {
+  --green-dark:    #1a4a2e;
+  --green-primary: #2d6a4f;
+  --green-mid:     #40916c;
+  --green-light:   #74c69d;
+  --green-pale:    #d8f3dc;
+  --earth:         #b7892d;
+  --earth-light:   #f0e4c4;
+  --bg:            #f2f5f1;
+  --surface:       #ffffff;
+  --text:          #1b2c1e;
+  --text-muted:    #5a7a61;
+  --border:        #cde0cc;
+  --danger:        #c0392b;
+  --danger-hover:  #96291e;
+  --error:         #1a4a2e;
+  --info:          #2471a3;
+  --info-hover:    #1a5276;
+  --shadow-sm:     0 1px 4px rgba(0,0,0,0.08);
+  --shadow-md:     0 4px 16px rgba(0,0,0,0.10);
+  --radius:        10px;
+  --sidebar-w:     240px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: 'Nunito', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+a { text-decoration: none; color: inherit; }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+button { font-family: inherit; cursor: pointer; }
+
+input, textarea, select {
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-size: 0.95rem;
+  color: var(--text);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* ── Scrollbar sutil ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* ── Botão voltar global ── */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: none;
+  color: var(--green-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: color 0.18s;
+}
+
+.btn-back:hover { color: var(--green-dark); }
+
+.btn-back--standalone {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(calc(-50% - 180px));
+}
+
+@media (max-width: 768px) {
+  .btn-back--standalone {
+    position: static;
+    transform: none;
+    padding: 80px 16px 0;
+    display: flex;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+}

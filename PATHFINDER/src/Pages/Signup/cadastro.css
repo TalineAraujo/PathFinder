@@ -1,119 +1,127 @@
-/* Container principal que abriga o formulário e a imagem */
+/* ── Layout ── */
 .cadastro-container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    align-items: center; /* Centraliza os itens verticalmente */
+  display: flex;
+  min-height: 100vh;
 }
 
-/* Container do formulário */
 .cadastro-form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 67%; /* O formulário ocupa 67% da largura da página */
-    height: 100%; /* O formulário ocupa a altura completa do container */
-    padding: 20px;
-    box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 52px;
+  background: var(--surface);
 }
 
-/* Estilo do formulário */
-form {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Inputs alinhados dois a dois */
-    gap: 20px;
-}
-
-/* Cada grupo de entrada do formulário */
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Estilo dos inputs do formulário */
-input[type="text"],
-input[type="date"],
-input[type="number"],
-input[type="email"],
-input[type="password"],
-select {
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-}
-
-/* Para os selects ficarem em linha com os inputs */
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-/* Estilo do título do formulário */
 .cadastro-form-container h2 {
-    text-align: center; /* Centraliza o texto do título */
-    margin: 30px 0 50px; /* Remove a margem superior e adiciona espaço abaixo do título */
-    font-size: 35px; /* Ajusta o tamanho da fonte do título */
-    font-weight: bold; /* Torna o título em negrito */
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--green-dark);
+  margin-bottom: 32px;
+  align-self: flex-start;
 }
 
-/* Estilo do botão cadastrar */
+/* Form grid — SCOPED para não vazar para outras páginas */
+.cadastro-form-container form {
+  width: 100%;
+  max-width: 560px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.cadastro-form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cadastro-form-container .form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.cadastro-form-container input[type="text"],
+.cadastro-form-container input[type="date"],
+.cadastro-form-container input[type="email"],
+.cadastro-form-container input[type="password"],
+.cadastro-form-container select {
+  padding: 11px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  transition: border-color 0.18s, background 0.18s;
+  font-family: inherit;
+}
+
+.cadastro-form-container input:focus,
+.cadastro-form-container select:focus {
+  outline: none;
+  border-color: var(--green-mid);
+  background: #fff;
+}
+
+.cadastro-form-container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
 .btn-cadastrar {
-    grid-column: span 2;
-    background-color: pink;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    text-align: center;
+  grid-column: span 2;
+  background: var(--green-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 8px;
+  transition: background 0.18s;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-/* Estilo do container da imagem */
+.btn-cadastrar:hover { background: var(--green-dark); }
+
+/* Image panel */
 .cadastro-imagem {
-    width: 33%; /* A imagem ocupa 33% da largura da página */
-    height: 100%; /* A imagem ocupa a altura completa do container */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Esconde qualquer parte da imagem que exceda os limites do container */
+  flex: 0.6;
+  overflow: hidden;
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .cadastro-imagem { display: block; }
 }
 
 .cadastro-imagem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Faz com que a imagem preencha todo o container sem distorção */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Tornando a página responsiva para dispositivos menores */
-@media (max-width: 768px) {
-    .cadastro-container {
-        flex-direction: column;
-    }
-
-    .cadastro-form-container, .cadastro-imagem {
-        width: 100%; /* Em telas menores, ambos ocupam 100% da largura */
-        height: auto; /* Permite que ambos se ajustem em altura conforme necessário */
-    }
-
-    form {
-        grid-template-columns: 1fr; /* Inputs ficam em uma única coluna em telas menores */
-    }
-
-    .btn-cadastrar {
-        grid-column: span 1;
-    }
+.cadastro-imagem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27,67,50,0.5) 0%, transparent 70%);
 }
 
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .cadastro-form-container { padding: 32px 20px; }
 
-  
-  
+  .cadastro-form-container form {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-cadastrar { grid-column: span 1; }
+}

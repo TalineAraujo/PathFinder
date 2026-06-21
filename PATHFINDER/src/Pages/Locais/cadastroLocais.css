@@ -1,70 +1,104 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('../../assets/cadastroUsuario.png'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ── Layout ── */
+.cadastrolocal-page {
+  min-height: 100vh;
+  background: var(--bg);
 }
 
-/* Estilização do contêiner do formulário */
-.cadastro-container {
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com maior opacidade */
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 600px; /* Aumentar a largura do formulário */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centralizar o conteúdo dentro do container */
+.cadastrolocal-content {
+  margin-left: var(--sidebar-w);
+  padding: 36px 32px;
+  max-width: 600px;
 }
 
-/* Estilização do formulário */
-.cadastro-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%; /* Garantir que o formulário ocupe toda a largura do container */
+.cadastrolocal-card {
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  padding: 36px;
 }
 
-/* Estilização das divs */
+.cadastrolocal-card h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--green-dark);
+  margin-bottom: 28px;
+}
+
+/* Form fields */
 .cadastro-div {
-  margin-bottom: 15px;
-}
-
-/* Estilização dos campos de entrada (inputs) */
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff; /* Fundo branco */
-  color: #000; /* Texto preto */
-}
-
-/* Estilização do botão de envio */
-button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: pink;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* Estilização do título */
-.cadastro-titulo {
-  text-align: center;
-  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   margin-bottom: 20px;
-  width: 100%;
 }
 
+.cadastro-div label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
 
+.cadastro-div input[type="text"],
+.cadastro-div textarea {
+  padding: 11px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  transition: border-color 0.18s, background 0.18s;
+  font-family: inherit;
+}
+
+.cadastro-div input[type="text"]:focus,
+.cadastro-div textarea:focus {
+  outline: none;
+  border-color: var(--green-mid);
+  background: #fff;
+}
+
+.cadastro-div textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.cadastro-div span {
+  font-size: 0.8rem;
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+/* Submit button — scoped to this page only */
+.cadastrolocal-card button[type="submit"] {
+  width: 100%;
+  background: var(--green-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 8px;
+  transition: background 0.18s;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.cadastrolocal-card button[type="submit"]:hover {
+  background: var(--green-dark);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .cadastrolocal-content {
+    margin-left: 0;
+    padding: 80px 16px 24px;
+  }
+
+  .cadastrolocal-card {
+    padding: 24px 18px;
+  }
+}

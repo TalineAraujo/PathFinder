@@ -1,62 +1,148 @@
-.header {
-  background-color: black; /* Define a cor de fundo do header */
-  color: pink; /* Define a cor do texto no header */
-  position: fixed; /* Mantém o header fixo na tela */
-  top: 0;
-  left: 0;
-  width: 200px; /* Define a largura do header */
-  height: 100vh; /* Define a altura do header como 100% da altura da viewport */
+/* ── Sidebar ── */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: linear-gradient(180deg, var(--green-dark) 0%, var(--green-primary) 100%);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Mantém os elementos alinhados ao topo */
-  padding: 20px;
+  padding: 28px 20px;
+  gap: 8px;
+  z-index: 200;
+  box-shadow: 2px 0 16px rgba(0,0,0,0.12);
+  transition: transform 0.28s ease;
 }
 
-.header-title {
-  font-size: 34px; /* Define o tamanho da fonte do título */
-  margin-bottom: 50px; /* Espaçamento abaixo do título */
-  color: pink; /* Cor do título */
-}
-
-.header nav ul {
-  list-style: none; /* Remove os marcadores da lista */
-  padding: 0; /* Remove o preenchimento da lista */
-  margin: 0; /* Remove as margens da lista */
-  flex-grow: 1; /* Permite que a lista cresça para ocupar o espaço disponível */
+.sidebar-logo {
   display: flex;
-  flex-direction: column; /* Alinha os itens da lista em coluna */
-  justify-content: center; /* Centraliza os itens da lista verticalmente */
-
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 36px;
+  letter-spacing: 0.5px;
 }
 
-.header nav ul li {
-  margin-bottom: 20px; /* Espaçamento entre os itens da lista */
-  
+.sidebar-logo-icon {
+  color: var(--green-light);
+  font-size: 1.2rem;
 }
 
-.header nav ul li a {
-  color: pink; /* Define a cor do texto dos links */
-  text-decoration: none; /* Remove a sublinhado dos links */
-  display: flex; /* Exibe os links como flex containers */
-  align-items: center; /* Alinha os ícones e o texto verticalmente */
+/* Nav links */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
 }
 
-.header nav ul li a svg {
-  margin-right: 10px; /* Espaçamento entre ícone e texto */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  transition: background 0.18s, color 0.18s;
 }
 
-.header-button {
-  margin-top: auto; /* Empurra o botão de sair para a parte inferior */
-  background: none; /* Remove o fundo do botão */
-  border: none; /* Remove a borda do botão */
-  color: pink; /* Define a cor do texto do botão */
-  display: flex; /* Exibe os links como flex containers */
-  align-items: center; /* Alinha os ícones e o texto verticalmente */
-  
+.sidebar-link:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
 }
 
-.header-button svg {
-  margin-right: 10px; /* Espaçamento entre ícone e texto no botão */
-
+.sidebar-link--active {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
 }
 
+.sidebar-link-icon {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Logout */
+.sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: var(--radius);
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.18s, color 0.18s;
+  margin-top: auto;
+  width: 100%;
+}
+
+.sidebar-logout:hover {
+  background: rgba(192,57,43,0.4);
+  color: #fff;
+}
+
+/* ── Mobile top bar ── */
+.mobile-topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: var(--green-dark);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 190;
+  box-shadow: var(--shadow-md);
+}
+
+.mobile-logo {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+}
+
+/* Overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 150;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 220px;
+  }
+
+  .sidebar--open {
+    transform: translateX(0);
+  }
+
+  .mobile-topbar {
+    display: flex;
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+}

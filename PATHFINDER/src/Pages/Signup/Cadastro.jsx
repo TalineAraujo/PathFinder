@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; 
-import './cadastro.css';  
+import api from '../../api/api';
+import { FaArrowLeft } from 'react-icons/fa';
+import './cadastro.css';
 
 const Cadastro = () => {
     const [email, setEmail] = useState('');
@@ -22,7 +23,7 @@ const Cadastro = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:9000/usuarios', {
+            const response = await api.post('/usuario', {
                 nome,
                 email,
                 cpf,
@@ -43,6 +44,9 @@ const Cadastro = () => {
     return (
         <div className="cadastro-container">
             <div className="cadastro-form-container">
+                <button className="btn-back" onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Voltar
+                </button>
                 <h2>Cadastre-se</h2>
                 <form onSubmit={handleSignup}>
                     <div className="form-group">
@@ -55,7 +59,7 @@ const Cadastro = () => {
                     </div>
                     <div className="form-group">
                         <label>CPF:</label>
-                        <input type="number" value={cpf} onChange={(e) => setCpf(e.target.value)} required />
+                        <input type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} maxLength={11} placeholder="Somente números" required />
                     </div>
 
                     <div className="form-group">

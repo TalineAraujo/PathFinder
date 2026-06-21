@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../api/api';
 import Header from '../../Components/Header/Header'; 
 import './local.css';
 
@@ -10,15 +10,6 @@ const Local = () => {
     
     const fetchLocais = async () => {
         try {
-            const token = localStorage.getItem('token');
-            
-            const api = axios.create({
-                baseURL: 'http://localhost:9000',
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-    
             const response = await api.get('/local');
             setLocais(response.data);
         } catch (error) {
@@ -36,20 +27,7 @@ const Local = () => {
 
     const handleDelete = async (localId) => {
         try {
-            const token = localStorage.getItem('token');
-            const userId = localStorage.getItem('usuario_Id');
-            
-            if (!token || !userId) {
-                console.log("Token ou usuario_Id não encontrados!");
-                return;
-            }
-    
-            const config = {
-                headers: { 'Authorization': `Bearer ${token}` },
-                params: { usuario_id: userId }
-            };
-    
-            const response = await axios.delete(`http://localhost:9000/local/${localId}`, config);
+            await api.delete(`/local/${localId}`);
             alert('Local excluido com sucesso!');
             
             fetchLocais();
@@ -66,13 +44,13 @@ const Local = () => {
         <div className="container-geral">
             <Header /> 
 
-            <div className="container-locais" style={{ marginLeft: '200px', padding: '20px' }}>
-                <h1 className="titulo-locais">Lista de Locais</h1>
-                <button className="btn-cadastro" onClick={handleCadastro}>Cadastrar Novo Local</button>
+            <div className="container-locais">
+                <h1 className="titulo-locais">Locais</h1>
+                <button className="btn-cadastro" onClick={handleCadastro}>+ Cadastrar Novo Local</button>
                 <ul className="lista-locais">
                     {locais.map(local => (
                         <li key={local.id} className="item-local">
-                            {local.nome}
+                            <span className="item-local-nome">{local.nome}</span>
                             <div className="container-botoes">
                                 <button className="btn-editar" onClick={() => handleEdit(local.id)}>
                                     <i className="fas fa-edit"></i> Editar

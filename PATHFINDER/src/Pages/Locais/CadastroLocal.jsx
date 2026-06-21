@@ -1,73 +1,73 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import api from '../../api/api';
 import { useNavigate } from 'react-router-dom';
-import './cadastroLocais.css'
+import Header from '../../Components/Header/Header';
+import { FaArrowLeft } from 'react-icons/fa';
+import './cadastroLocais.css';
 
 const CadastroLocal = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
-  
 
   const onSubmit = async (data) => {
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:9000/local', data, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      alert('Local cadastrado com sucesso:', response.data);
+      await api.post('/local', data);
+      alert('Local cadastrado com sucesso!');
       navigate('/local');
     } catch (error) {
-      alert('Erro ao cadastrar o local, verifique o CEP:', error);
+      const msg = error.response?.data?.message || 'Verifique o CEP e tente novamente.';
+      alert(`Erro ao cadastrar o local: ${msg}`);
     }
   };
 
   return (
-    <div className="cadastro-container">
-      <h2 className="cadastro-titulo">Cadastrar Novo Local</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="cadastro-form">
-        <div className="cadastro-div">
-          <label>Nome do Local:</label>
-          <input 
-            type="text" 
-            {...register('nome', { required: 'O nome é obrigatório' })} 
-          />
-          {errors.nome && <span>{errors.nome.message}</span>}
-        </div>
+    <div className="cadastrolocal-page">
+      <Header />
+      <div className="cadastrolocal-content">
+        <button className="btn-back" onClick={() => navigate(-1)}>
+          <FaArrowLeft /> Voltar
+        </button>
 
-        <div className="cadastro-div">
-          <label>Descrição:</label>
-          <textarea 
-            {...register('descricao')} 
-          />
-        </div>
+        <div className="cadastrolocal-card">
+          <h2>Cadastrar Novo Local</h2>
 
-        <div className="cadastro-div">
-          <label>CEP:</label>
-          <input 
-            type="text" 
-            {...register('cep', { required: 'O CEP é obrigatório' })} 
-          />
-          {errors.cep && <span>{errors.cep.message}</span>}
-        </div>
+          <form onSubmit={handleSubmit(onSubmit)} className="cadastro-form">
+            <div className="cadastro-div">
+              <label>Nome do Local</label>
+              <input
+                type="text"
+                placeholder="Ex: Trilha da Serra"
+                {...register('nome', { required: 'O nome é obrigatório' })}
+              />
+              {errors.nome && <span>{errors.nome.message}</span>}
+            </div>
 
-        <div className="cadastro-div">
-          <label>Prática Esportiva:</label>
-          <input 
-            type="text" 
-            {...register('pratica_esportiva', { required: 'A prática esportiva é obrigatória' })} 
-          />
-          {errors.pratica_esportiva && <span>{errors.pratica_esportiva.message}</span>}
-        </div>
+            <div className="cadastro-div">
+              <label>Descrição</label>
+              <textarea
+                placeholder="Descreva o local..."
+                {...register('descricao')}
+              />
+            </div>
 
-        <button type="submit">Cadastrar Local</button>
-      </form>
+            <div className="cadastro-div">
+              <label>CEP</label>
+              <input
+                type="text"
+                placeholder="Somente números"
+                maxLength={8}
+                {...register('cep', { required: 'O CEP é obrigatório' })}
+              />
+              {errors.cep && <span>{errors.cep.message}</span>}
+            </div>
+
+            <button type="submit">Cadastrar Local</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default CadastroLocal;
-
-
